@@ -1,0 +1,42 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ZeroDeploy AI Backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "latest",
+    "cors": "latest",
+    "dockerode": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "express-http-proxy": "^2.1.2",
+    "http-proxy-middleware": "^3.0.5",
+    "localtunnel": "^2.0.2",
+    "multer": "latest",
+    "simple-git": "latest",
+    "socket.io": "latest",
+    "unzipper": "latest",
+    "uuid": "latest"
+  },
+  "devDependencies": {
+    "@types/cors": "latest",
+    "@types/dockerode": "latest",
+    "@types/express": "latest",
+    "@types/localtunnel": "^2.0.4",
+    "@types/multer": "latest",
+    "@types/node": "latest",
+    "@types/unzipper": "latest",
+    "@types/uuid": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
