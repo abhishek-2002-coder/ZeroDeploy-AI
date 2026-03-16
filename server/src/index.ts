@@ -22,11 +22,16 @@ const io = new Server(httpServer, {
 const PORT = Number(process.env.PORT) || 4010;
 
 app.use(cors({
-  origin: '*',
+  origin: true,
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-github-event'],
 }));
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', server: 'ZeroDeploy AI Backend' });
+});
 
 // Request Logging
 app.use((req, res, next) => {
