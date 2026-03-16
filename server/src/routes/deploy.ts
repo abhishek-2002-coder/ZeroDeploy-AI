@@ -16,9 +16,11 @@ router.post('/upload', upload.single('project'), (req, res) => {
   }
 
   const projectId = uuidv4();
-  const extractPath = path.join(__dirname, '../../deployments', projectId);
+  const extractPath = path.join(process.cwd(), 'deployments', projectId);
 
-  fs.mkdirSync(extractPath, { recursive: true });
+  if (!fs.existsSync(extractPath)) {
+    fs.mkdirSync(extractPath, { recursive: true });
+  }
 
   fs.createReadStream(file.path)
     .pipe(unzipper.Extract({ path: extractPath }))

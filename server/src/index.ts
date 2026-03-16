@@ -65,5 +65,17 @@ app.get('/health', (req, res) => {
 const HOST = '0.0.0.0';
 
 httpServer.listen(PORT, HOST, () => {
-  console.log(`Server is running on http://${HOST}:${PORT}`);
+  console.log(`🚀 ZeroDeploy AI Backend started at ${new Date().toISOString()}`);
+  console.log(`🔗 Local Address: http://localhost:${PORT}`);
+  console.log(`🌍 Public bind: http://${HOST}:${PORT}`);
+  console.log(`📦 Deployments dir: ${path.join(process.cwd(), 'deployments')}`);
+});
+
+// Global error handler
+process.on('uncaughtException', (err) => {
+  console.error('🔥 CRITICAL: Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('🔥 CRITICAL: Unhandled Rejection at:', promise, 'reason:', reason);
 });
